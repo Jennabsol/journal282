@@ -1,5 +1,5 @@
-import {dashHtml} from "./dashboard/dashHtml"
-import {journal} from "./journal/journal"
+import {dashboard} from "./dashboard/dashboard"
 
-document.querySelector("#container").innerHTML = dashHtml()
-journal()
+
+const activeUser = parseInt(sessionStorage.getItem("activeUser"))
+dashboard(activeUser)

@@ -1,7 +1,8 @@
 const dashHtml = ()=>{
     return `
-    <div id="input"></div>
-    <div id="output"></div>`
+    <nav></nav>
+    <div class="container" id="input"></div>
+    <div class="container" id="output"></div>`
 }
 
 export {dashHtml}

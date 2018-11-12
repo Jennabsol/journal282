@@ -6,9 +6,9 @@ const dom = (entry) => {
     document.querySelector("#output").innerHTML += entry
 }
 
-const domRender = () => {
+const domRender = (activeUser) => {
     document.querySelector("#output").innerHTML = ""
-    dataManager.getEntries()
+    dataManager.getEntries(activeUser)
         .then(entries => {
             entries.forEach(entry => {
                 const entryHtml = htmlEntry(entry)

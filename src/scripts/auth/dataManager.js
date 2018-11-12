@@ -1,34 +1,42 @@
-const url = "http://localhost:3000/entries"
+const url = "http://localhost:3000/users"
 const dataManager = {
-    getEntries: (id) => {
-        return fetch(`${url}?userId=${id}`)
+    getUsers: () => {
+        return fetch(`${url}`)
             .then(res => res.json())
     },
-    saveEntry: (entry) => {
+    saveUser: (user) => {
         return fetch(`${url}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(entry)
+            body: JSON.stringify(user)
         }).then(res => res.json());
     },
-    deleteEntries: (id) => {
-        return fetch(`${url}/${id}`,{
+    deleteUsers: (id) => {
+        return fetch(`${url}/${id}`, {
             method: "DELETE"
         }).then(res => res.json())
     },
-    editEntry: (entry, id) => {
+    editUser: (user, id) => {
         return fetch(`${url}/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(entry)
+            body: JSON.stringify(user)
         }).then(res => res.json());
     },
-    singleEntry: (id) => {
+    singleUser: (id) => {
         return fetch(`${url}/${id}`)
+            .then(res => res.json())
+    },
+    searchUsername: (name) => {
+        return fetch(`${url}?username=${name}`)
+            .then(res => res.json())
+    },
+    searchUsers: (name, psw) => {
+        return fetch(`${url}?username=${name}&password=${psw}`)
             .then(res => res.json())
     }
 }
